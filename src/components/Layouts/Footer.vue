@@ -6,11 +6,11 @@
           <div class="single-footer-widget">
             <div class="logo">
               <router-link to="/">
-                <img src="../../assets/images/white-logo.png" alt="image" />
+                <img src="../../assets/logo-write.png" class="tuling-logo" alt="image" />
               </router-link>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore.
               </p>
             </div>
 
@@ -73,7 +73,7 @@
 
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
-            <h3>Quick Links</h3>
+            <h3>快捷导航</h3>
 
             <ul class="quick-links-list">
               <li>
@@ -105,18 +105,16 @@
 
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="single-footer-widget">
-            <h3>Contacts</h3>
+            <h3>联系我们</h3>
 
             <ul class="footer-contact-list">
+              <li><span>Address: </span> {{ firstcon.address }}</li>
               <li>
-                <span>Address: </span> {{firstcon.address}}
-              </li>
-              <li>
-                <span>Email: </span>{{firstcon.email}}
+                <span>Email: </span>{{ firstcon.email }}
                 <!-- <a href="mailto:hello@strend.com">{{firstcon.email}}</a> -->
               </li>
               <li>
-                <span>Phone: </span>{{firstcon.telephone}}
+                <span>Phone: </span>{{ firstcon.telephone }}
                 <!-- <a href="tel:+44587154756">+44 587 154756</a> -->
               </li>
               <!-- <li>
@@ -134,21 +132,14 @@
         <div class="row align-items-center">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <p>
-              &copy; {{ currentYear }} <router-link to="/">图灵学社</router-link>.
-              All Rights Reserved.
+              &copy; {{ currentYear }} <router-link to="/">图灵学社</router-link>. All Rights
+              Reserved.
             </p>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6">
             <ul>
-              <li>
-                <router-link to="/privacy-policy">Privacy Policy</router-link>
-              </li>
-              <li>
-                <router-link to="/terms-of-service"
-                  >Terms & Conditions</router-link
-                >
-              </li>
+              <li>琼ICP备2022003873号</li>
             </ul>
           </div>
         </div>
@@ -168,34 +159,39 @@
 </template>
 
 <script>
-import axios from "axios";
+  import axios from 'axios'
 
-export default {
-  name: "Footer",
-  mounted(){
-    this.postData();
-  },
-  data() {
-    return {
-      currentYear: new Date().getFullYear(),
-      contact:[],
-      firstcon:{},
-    };
-  },
-  methods:{
-    postData(){
-      axios({
-        method:"POST",
-        url:"http://backend.hsturing.com/getTLSContactEmailData",
-        data:{
-          params:{
+  export default {
+    name: 'Footer',
+    mounted() {
+      this.postData()
+    },
+    data() {
+      return {
+        currentYear: new Date().getFullYear(),
+        contact: [],
+        firstcon: {},
+      }
+    },
+    methods: {
+      postData() {
+        axios({
+          method: 'POST',
+          url: 'http://backend.hsturing.com/getTLSContactEmailData',
+          data: {
+            params: {},
           },
-        },
-      }).then((res)=>{
-        this.contact=res.data.result.contacts,
-        this.firstcon=this.contact[0]
-      })
-    }
+        }).then((res) => {
+          this.contact = res.data.result.contacts
+          this.firstcon = this.contact[0]
+        })
+      },
+    },
   }
-};
 </script>
+
+<style scoped>
+  .tuling-logo {
+    width: 150px;
+  }
+</style>

@@ -1,3 +1,13 @@
+/*
+ * @Author: August_rush
+ * @Date: 2024-02-20 16:43:29
+ * @LastEditors: August_rush 864011713@qq.com
+ * @LastEditTime: 2024-02-20 20:32:55
+ * @FilePath: \hsturingwebsite\src\router\index.js
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 import { createWebHistory, createRouter } from "vue-router";
 
 // All Pages
